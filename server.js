@@ -15,7 +15,7 @@ const app = express();
 redisClient.set("number", 0);
 
 app.get("/", (req, res) => {
-  redisClient("number", (err, number) => {
+  redisClient.get("number", (err, number) => {
     // 현재 숫자를 가져운 후에 1씩 올려준다.
     redisClient.set("number", parseInt(number) + 1);
     res.send("숫자가 1씩 올라갑니다. 숫자:" + number);
